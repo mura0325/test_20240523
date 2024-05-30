@@ -1,6 +1,6 @@
 # ベースイメージを選択（PostgreSQLがインストールされたイメージを選択する）
 # FROM ghcr.io/cloudnative-pg/postgresql:16.2
-FROM ghcr.io/cloudnative-pg/postgis:16
+FROM ghcr.io/cloudnative-pg/postgis:16.2
 
 # ルート権限でコマンドを実行
 USER root
