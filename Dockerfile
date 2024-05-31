@@ -82,8 +82,8 @@ RUN set -ex \
      	&& cd /tmp/ \
       	&& rm -rf pg_statsinfo-REL16_0
 # Shared
-RUN RUN echo "comment = 'pg_statsinfo' \n\
+RUN echo "comment = 'pg_statsinfo'\n\
 default_version = 16\n\
-module_pathname = $(lib)/pg_statsinfo "  >> /usr/share/postgresql/16/extension/pg_statsinfo
+module_pathname = $(lib)/pg_statsinfo"  >> /usr/share/postgresql/16/extension/pg_statsinfo
 
 User postgres
