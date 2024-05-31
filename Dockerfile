@@ -68,15 +68,17 @@ RUN set -xe; \
 # pg_statsinfoのコンパイル
 RUN set -ex \
 	&& cd /tmp/ \
-    && curl -sSL -O https://github.com/ossc-db/pg_statsinfo/archive/refs/tags/REL16_0.tar.gz \
-    && tar xvf REL16_0.tar.gz \
-    && rm -rf REL16_0.tar.gz \
-    && cd pg_statsinfo-REL16_0 \
-    && ln -sf /usr/lib/postgresql/16/lib/libpgcommon.a /usr/lib/x86_64-linux-gnu/ \
-    && ln -sf /usr/lib/postgresql/16/lib/libpgport.a /usr/lib/x86_64-linux-gnu/
-    && make USE_PGXS=1 \
-    && make USE_PGXS=1 install \
-    && mkdir /run/pg_statsinfo \
-    && chown postgres:postgres /run/pg_statsinfo
+    	&& curl -sSL -O https://github.com/ossc-db/pg_statsinfo/archive/refs/tags/REL16_0.tar.gz \
+    	&& tar xvf REL16_0.tar.gz \
+    	&& rm -rf REL16_0.tar.gz \
+    	&& cd pg_statsinfo-REL16_0 \
+    	&& ln -sf /usr/lib/postgresql/16/lib/libpgcommon.a /usr/lib/x86_64-linux-gnu/ \
+    	&& ln -sf /usr/lib/postgresql/16/lib/libpgport.a /usr/lib/x86_64-linux-gnu/
+    	&& make USE_PGXS=1 \
+    	&& make USE_PGXS=1 install \
+    	&& mkdir /run/pg_statsinfo \
+    	&& chown postgres:postgres /run/pg_statsinfo \
+     	&& cd /tmp/ \
+      	&& rm -rf pg_statsinfo-REL16_0
     
 User postgres
