@@ -73,7 +73,7 @@ RUN set -ex \
     	&& rm -rf REL16_0.tar.gz \
     	&& cd pg_statsinfo-REL16_0 \
     	&& ln -sf /usr/lib/postgresql/16/lib/libpgcommon.a /usr/lib/x86_64-linux-gnu/ \
-    	&& ln -sf /usr/lib/postgresql/16/lib/libpgport.a /usr/lib/x86_64-linux-gnu/
+    	&& ln -sf /usr/lib/postgresql/16/lib/libpgport.a /usr/lib/x86_64-linux-gnu/ \
     	&& make USE_PGXS=1 \
     	&& make USE_PGXS=1 install \
     	&& mkdir /run/pg_statsinfo \
