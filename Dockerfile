@@ -13,6 +13,7 @@ RUN set -ex \
         curl \
         libpq-dev \
         postgresql-server-dev-16 \
+	curl \
     && rm -rf /var/lib/apt/lists/*
 
 # APTのキャッシュディレクトリを作成
