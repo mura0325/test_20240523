@@ -30,4 +30,4 @@ jobs:
       with:
         context:
         push: true
-        tags: ritz2016/ntt-east-postgis:16.2.3
+        tags: ritz2016/ntt-east-postgis:16.2.4
