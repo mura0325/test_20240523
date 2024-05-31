@@ -81,5 +81,7 @@ RUN set -ex \
     	&& chown postgres:postgres /run/pg_statsinfo \
      	&& cd /tmp/ \
       	&& rm -rf pg_statsinfo-REL16_0
-    
+
+CMD ["postgres", "-c", "shared_preload_libraries=pg_statsinfo]
+
 User postgres
