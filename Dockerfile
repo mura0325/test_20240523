@@ -18,9 +18,6 @@ RUN set -ex \
   	flex \
     && rm -rf /var/lib/apt/lists/*
 
-# APTのキャッシュディレクトリを作成
-RUN mkdir -p /var/lib/apt/lists/partial
-
 
 # postgist
 RUN set -xe; \
