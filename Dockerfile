@@ -15,7 +15,7 @@ RUN set -ex \
         postgresql-server-dev-16 \
 	curl \
  	git \
-  	flex; \
+  	flex \
     && rm -rf /var/lib/apt/lists/*;
 
 
