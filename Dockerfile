@@ -8,24 +8,20 @@ USER root
 # Compileに必要なパッケージのインストール
 RUN set -ex \
 	&& apt-get update && apt-get install -y --no-install-recommends --allow-downgrades \
-		build-essential \
+	build-essential \
         ca-certificates \
         curl \
         libpq-dev \
         postgresql-server-dev-16 \
 	curl \
+ 	git \
+  	flex \
     && rm -rf /var/lib/apt/lists/*
 
 # APTのキャッシュディレクトリを作成
 RUN mkdir -p /var/lib/apt/lists/partial
 
 
-# PostgreSQLの開発ツールと依存関係をインストール
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    postgresql-server-dev-all \
-    git \
-    flex
 # postgist
 RUN set -xe; \
 	apt-get update; \
@@ -79,6 +75,7 @@ RUN set -ex \
     	&& make USE_PGXS=1 install \
     	&& mkdir /run/pg_statsinfo \
     	&& chown postgres:postgres /run/pg_statsinfo \
+        && cp lib/*.sql /usr/share/postgresql/16/extension/ \
      	&& cd /tmp/ \
       	&& rm -rf pg_statsinfo-REL16_0
 # Shared
@@ -86,4 +83,6 @@ RUN echo "comment = 'pg_statsinfo'\n\
 default_version = 16\n\
 module_pathname = '\$lib/pg_statsinfo'"  >> /usr/share/postgresql/16/extension/pg_statsinfo.control
 
+RUN set -xe; \
+	apt-get --purge remove 
 User postgres
