@@ -74,7 +74,8 @@ RUN set -ex \
     	&& make USE_PGXS=1 install \
     	&& mkdir /run/pg_statsinfo \
     	&& chown postgres:postgres /run/pg_statsinfo \
-        && cp lib/*.sql /usr/share/postgresql/16/extension/ \
+       	&& c lib \
+        && mv *.sql /usr/share/postgresql/16/extension/ \
      	&& cd /tmp/ \
       	&& rm -rf pg_statsinfo-REL16_0
 # Shared
